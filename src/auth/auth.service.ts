@@ -72,7 +72,7 @@ export class AuthService {
     let adminId: number;
     try {
       const payload = await this.jwtService.verifyAsync(refresh_token, {
-        secret: process.env.STAFF_REFRESH_TOKEN_KEY,
+        secret: process.env.REFRESH_TOKEN_KEY,
       });
       adminId = payload.id;
     } catch (error) {
@@ -98,7 +98,7 @@ export class AuthService {
     let payload: any;
     try {
       payload = await this.jwtService.verifyAsync(refresh_token, {
-        secret: process.env.STAFF_REFRESH_TOKEN_KEY,
+        secret: process.env.REFRESH_TOKEN_KEY,
       });
     } catch (error) {
       throw new UnauthorizedException("Token noto‘g‘ri yoki muddati tugagan");
@@ -167,7 +167,7 @@ export class AuthService {
     let customerId: number;
     try {
       const payload = await this.jwtService.verifyAsync(refresh_token, {
-        secret: process.env.STAFF_REFRESH_TOKEN_KEY,
+        secret: process.env.REFRESH_TOKEN_KEY,
       });
       customerId = payload.id;
     } catch (error) {
@@ -193,7 +193,7 @@ export class AuthService {
     let payload: any;
     try {
       payload = await this.jwtService.verifyAsync(refresh_token, {
-        secret: process.env.STAFF_REFRESH_TOKEN_KEY,
+        secret: process.env.REFRESH_TOKEN_KEY,
       });
     } catch (error) {
       throw new UnauthorizedException("Token noto‘g‘ri yoki muddati tugagan");

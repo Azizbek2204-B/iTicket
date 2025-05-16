@@ -4,6 +4,7 @@ import { DistrictController } from "./district.controller";
 import { MongooseModule } from "@nestjs/mongoose";
 import { DistrictSchema } from "./schemas/district.schema";
 import { Region, RegionSchema } from "../region/schemas/region.schema";
+import { RegionModule } from "../region/region.module";
 
 @Module({
   imports: [
@@ -16,4 +17,3 @@ import { Region, RegionSchema } from "../region/schemas/region.schema";
   providers: [DistrictService],
 })
 export class DistrictModule {}
-  

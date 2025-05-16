@@ -6,8 +6,8 @@ import { AuthModule } from './auth/auth.module';
 import { CustomerModule } from './customer/customer.module';
 import { RegionModule } from './region/region.module';
 import { DistrictModule } from './district/district.module';
-import { CustometCardModule } from './customet-card/customet-card.module';
-import { CustometAddressModule } from './customet-address/customet-address.module';
+import { CustomerCardModule } from './customer-card/customer-card.module';
+import { CustomerAddressModule } from './customer-address/customer-address.module';
 
 @Module({
   imports: [ConfigModule.forRoot({envFilePath: '.env', isGlobal: true}),
@@ -17,8 +17,8 @@ import { CustometAddressModule } from './customet-address/customet-address.modul
   CustomerModule,
   RegionModule,
   DistrictModule,
-  CustometCardModule,
-  CustometAddressModule],
+  CustomerCardModule,
+  CustomerAddressModule],
   controllers: [],
   providers: [],
 })

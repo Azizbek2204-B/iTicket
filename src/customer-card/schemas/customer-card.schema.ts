@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { HydratedDocument, Types } from "mongoose";
+import mongoose, { HydratedDocument, Types } from "mongoose";
 import { Region } from "../../region/schemas/region.schema";
 import { Customer } from "../../customer/schemas/customer.schema";
 
@@ -7,7 +7,10 @@ export type CustomerCardDocument = HydratedDocument<CustomerCard>;
 
 @Schema()
 export class CustomerCard {
-  @Prop({type:Types.ObjectId, ref:()=>Customer})
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Customer",
+  })
   customer_id:Types.ObjectId
 
   @Prop()

@@ -1,25 +1,26 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { HydratedDocument, Types } from "mongoose";
+import mongoose, { HydratedDocument, Types } from "mongoose";
 import { Customer } from "../../customer/schemas/customer.schema";
+import { District } from "../../district/schemas/district.schema";
 
 export type CustomerAddressDocument = HydratedDocument<CustomerAddress>;
 
 @Schema()
 export class CustomerAddress {
-  @Prop({type:Types.ObjectId, ref:()=>Customer})
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Customer",
+  })
   customer_id:Types.ObjectId
 
   @Prop()
   name: string
 
-  @Prop()
-  country_id: number
-
-  @Prop()
-  region_id: number
-
-  @Prop()
-  district_id: number
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "District",
+  })
+  district_id: District
 
   @Prop()
   street: string
@@ -38,6 +39,7 @@ export class CustomerAddress {
 
   @Prop()
   info: string
+
 }
 
 export const CustomerAddressSchema = SchemaFactory.createForClass(CustomerAddress);

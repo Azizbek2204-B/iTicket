@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { HydratedDocument } from "mongoose";
+import mongoose, { HydratedDocument } from "mongoose";
+import { CustomerCard } from "../../customer-card/schemas/customer-card.schema";
 
 export type CustomerDocument = HydratedDocument<Customer>;
 
@@ -31,6 +32,26 @@ export class Customer {
 
   @Prop()
   hashed_refresh_token: string;
+
+  @Prop({
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "CustomerCard",
+      },
+    ],
+  })
+  customer_cards: CustomerCard[];
+
+  @Prop({
+    type: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "CustomerAddress",
+      },
+    ],
+  })
+  customer_addresses: CustomerCard[];
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

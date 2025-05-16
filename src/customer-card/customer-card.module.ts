@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
-import { CustometCardService } from "./customet-card.service";
-import { CustometCardController } from "./customet-card.controller";
+import { CustomerCardService } from "./customer-card.service";
+import { CustomerCardController } from "./customer-card.controller";
 import { MongooseModule } from "@nestjs/mongoose";
-import { CustomerCardSchema } from "./schemas/customet-card.schema";
+import { CustomerCardSchema } from "./schemas/customer-card.schema";
 import { CustomerSchema } from "../customer/schemas/customer.schema";
 
 @Module({
@@ -12,7 +12,7 @@ import { CustomerSchema } from "../customer/schemas/customer.schema";
       { name: "Customer", schema: CustomerSchema },
     ]),
   ],
-  controllers: [CustometCardController],
-  providers: [CustometCardService],
+  controllers: [CustomerCardController],
+  providers: [CustomerCardService],
 })
-export class CustometCardModule {}
+export class CustomerCardModule {}
