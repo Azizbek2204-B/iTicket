@@ -16,7 +16,7 @@ export class CustomerCardService {
   }
 
   findAll() {
-    return this.customerCardModel.find();
+    return this.customerCardModel.find().populate("customer_id")
   }
 
   findOne(id: number) {
