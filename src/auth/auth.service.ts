@@ -135,11 +135,11 @@ export class AuthService {
   async loginCustomer(loginDto: LoginDto, res: Response) {
     const customer = await this.customerService.findByEmail(loginDto.email);
     if (!customer) {
-      throw new UnauthorizedException("Parol yoki email xato");
+      throw new UnauthorizedException("Parol yoki email xato1");
     }
     const isPasswordValid = await bcrypt.compare(loginDto.password, customer.hashed_password);
     if (!isPasswordValid) {
-      throw new UnauthorizedException("Parol yoki email xato");
+      throw new UnauthorizedException("Parol yoki email xato2");
     }
     const tokens = await this.generateTokens(customer);
     res.cookie("refresh_token", tokens.refresh_token, {
