@@ -14,6 +14,12 @@ import { TypesModule } from './types/types.module';
 import { VenuPhotoModule } from './venu-photo/venu-photo.module';
 import { SeatTypeModule } from './seat-type/seat-type.module';
 import { SeatModule } from './seat/seat.module';
+import { LangModule } from './lang/lang.module';
+import { EventTypeModule } from './event_type/event_type.module';
+import { EventModule } from './event/event.module';
+import { HumanCategoryModule } from './human_category/human_category.module';
+import { TicketStatusModule } from './ticket_status/ticket_status.module';
+import { TicketModule } from './ticket/ticket.module';
 
 @Module({
   imports: [ConfigModule.forRoot({envFilePath: '.env', isGlobal: true}),
@@ -30,7 +36,13 @@ import { SeatModule } from './seat/seat.module';
   TypesModule,
   VenuPhotoModule,
   SeatTypeModule,
-  SeatModule],
+  SeatModule,
+  LangModule,
+  EventTypeModule,
+  EventModule,
+  HumanCategoryModule,
+  TicketStatusModule,
+  TicketModule],
   controllers: [],
   providers: [],
 })
