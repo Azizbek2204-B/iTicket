@@ -1,11 +1,11 @@
-import { Module } from '@nestjs/common';
-import { LangService } from './lang.service';
-import { LangController } from './lang.controller';
-import { MongooseModule } from '@nestjs/mongoose';
-import { LangSchema } from './models/lang.model';
+import { Module } from "@nestjs/common";
+import { LangService } from "./lang.service";
+import { LangController } from "./lang.controller";
+import { MongooseModule } from "@nestjs/mongoose";
+import { LangSchema } from "./schemas/lang.schema";
 
 @Module({
-  imports:[MongooseModule.forFeature([{name:'Lang',schema:LangSchema}])],
+  imports: [MongooseModule.forFeature([{ name: "Lang", schema: LangSchema }])],
   controllers: [LangController],
   providers: [LangService],
 })

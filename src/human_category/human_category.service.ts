@@ -1,14 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { CreateHumanCategoryDto } from './dto/create-human_category.dto';
-import { UpdateHumanCategoryDto } from './dto/update-human_category.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { HumanCategory } from './models/human_category.model';
-import { Model } from 'mongoose';
+import { Injectable } from "@nestjs/common";
+import { CreateHumanCategoryDto } from "./dto/create-human_category.dto";
+import { UpdateHumanCategoryDto } from "./dto/update-human_category.dto";
+import { InjectModel } from "@nestjs/mongoose";
+import { HumanCategory } from "./schemas/human_category.schema";
+import { Model } from "mongoose";
 
 @Injectable()
 export class HumanCategoryService {
   constructor(
-    @InjectModel("HumanCategory") private readonly humanCategoryModel: Model<HumanCategory>,
+    @InjectModel("HumanCategory")
+    private readonly humanCategoryModel: Model<HumanCategory>
   ) {}
 
   create(createHumanCategoryDto: CreateHumanCategoryDto) {
@@ -24,10 +25,13 @@ export class HumanCategoryService {
   }
 
   update(id: number, updateHumanCategoryDto: UpdateHumanCategoryDto) {
-    return this.humanCategoryModel.updateOne({ _id: id }, updateHumanCategoryDto);
+    return this.humanCategoryModel.updateOne(
+      { _id: id },
+      updateHumanCategoryDto
+    );
   }
 
   remove(id: number) {
-    return this.humanCategoryModel.deleteOne({_id:id})
+    return this.humanCategoryModel.deleteOne({ _id: id });
   }
 }

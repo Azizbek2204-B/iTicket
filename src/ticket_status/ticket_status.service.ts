@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { CreateTicketStatusDto } from "./dto/create-ticket_status.dto";
 import { UpdateTicketStatusDto } from "./dto/update-ticket_status.dto";
 import { InjectModel } from "@nestjs/mongoose";
-import { TicketStatus } from "./models/ticket_status.model";
+import { TicketStatus } from "./schemas/ticket_status.schema";
 import { Model } from "mongoose";
 
 @Injectable()
@@ -29,6 +29,6 @@ export class TicketStatusService {
   }
 
   remove(id: number) {
-    return this.ticketStatusModel.deleteOne({ _id: id }); 
+    return this.ticketStatusModel.deleteOne({ _id: id });
   }
 }

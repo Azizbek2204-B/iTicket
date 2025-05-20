@@ -1,8 +1,9 @@
-import { Prop, SchemaFactory } from "@nestjs/mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { HydratedDocument, Types } from "mongoose";
 
 export type SeatDocument = HydratedDocument<Seat>;
 
+@Schema()
 export class Seat {
     @Prop()
     sector:number

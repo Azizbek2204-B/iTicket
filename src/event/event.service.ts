@@ -1,13 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { CreateEventDto } from './dto/create-event.dto';
-import { UpdateEventDto } from './dto/update-event.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Injectable } from "@nestjs/common";
+import { CreateEventDto } from "./dto/create-event.dto";
+import { UpdateEventDto } from "./dto/update-event.dto";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
+import { Event } from "./schemas/event.schema";
 
 @Injectable()
 export class EventService {
-  constructor (
-    @InjectModel('Event') private readonly eventModel: Model<Event>,
+  constructor(
+    @InjectModel("Event") private readonly eventModel: Model<Event>
   ) {}
   create(createEventDto: CreateEventDto) {
     return this.eventModel.create(createEventDto);

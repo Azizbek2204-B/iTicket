@@ -1,14 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { CreateTicketDto } from './dto/create-ticket.dto';
-import { UpdateTicketDto } from './dto/update-ticket.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { Ticket } from './models/ticket.model';
-import { Model } from 'mongoose';
+import { Injectable } from "@nestjs/common";
+import { CreateTicketDto } from "./dto/create-ticket.dto";
+import { UpdateTicketDto } from "./dto/update-ticket.dto";
+import { InjectModel } from "@nestjs/mongoose";
+import { Ticket } from "./schemas/ticket.schema";
+import { Model } from "mongoose";
 
 @Injectable()
 export class TicketService {
   constructor(
-    @InjectModel('Ticket') private readonly ticketModel: Model<Ticket>,
+    @InjectModel("Ticket") private readonly ticketModel: Model<Ticket>
   ) {}
   create(createTicketDto: CreateTicketDto) {
     return this.ticketModel.create(createTicketDto);
