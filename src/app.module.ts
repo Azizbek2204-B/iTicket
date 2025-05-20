@@ -20,6 +20,11 @@ import { EventModule } from './event/event.module';
 import { HumanCategoryModule } from './human_category/human_category.module';
 import { TicketStatusModule } from './ticket_status/ticket_status.module';
 import { TicketModule } from './ticket/ticket.module';
+import { PaymentMehtodModule } from './payment_mehtod/payment_mehtod.module';
+import { DeliveryMehtodModule } from './delivery_mehtod/delivery_mehtod.module';
+import { BookingModule } from './booking/booking.module';
+import { CardItemModule } from './card_item/card_item.module';
+import { CardModule } from './card/card.module';
 
 @Module({
   imports: [ConfigModule.forRoot({envFilePath: '.env', isGlobal: true}),
@@ -42,7 +47,12 @@ import { TicketModule } from './ticket/ticket.module';
   EventModule,
   HumanCategoryModule,
   TicketStatusModule,
-  TicketModule],
+  TicketModule,
+  PaymentMehtodModule,
+  DeliveryMehtodModule,
+  BookingModule,
+  CardItemModule,
+  CardModule],
   controllers: [],
   providers: [],
 })
